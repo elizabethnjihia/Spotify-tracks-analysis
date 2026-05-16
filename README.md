@@ -42,27 +42,7 @@ All cleaning was done inside Power Query Editor before loading into the model.
 7. **Decoded `mode_name`** — mapped 0 → Minor, 1 → Major
 8. **Filtered duration outliers** — removed tracks over 10 minutes (`duration_ms > 600,000`) for music-only analysis
 
----
 
-## Data model
-
-The flat CSV was restructured into a **Star Schema** for cleaner relationships and faster slicer performance.
-
-```
-fact_tracks          dim_genres          dim_artists
-────────────         ──────────          ───────────
-track_id (FK)   →   genre_id (PK)       artist_id (PK)
-genre_id (FK)   →   genre_name          artist_name
-artist_id (FK)  →
-popularity
-danceability
-energy
-acousticness
-valence
-tempo
-duration_min
-explicit
-```
 
 ---
 
